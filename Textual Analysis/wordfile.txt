@@ -1,0 +1,4 @@
+This is a wordfile, it is made of a single sentence. This is sentence number two
+This is sentence number 3.
+Mary had a little lamb mary
+Twinkle Twinkle little star
