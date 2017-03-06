@@ -8,8 +8,8 @@ from sklearn.metrics import accuracy_score
 #from sklearn import svm
 #from sklearn.preprocessing import StandardScaler
 #from sklearn.gaussian_process.kernels import ConstantKernel
-#from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+#from sklearn.linear_model import LogisticRegression
 
 #read the reviews and their polarities from a given file
 def loadData(fname):
@@ -37,8 +37,8 @@ counts_train = counter.transform(rev_train)#transform the training data
 counts_test = counter.transform(rev_test)#transform the testing data
 
 #train classifier
-clf = LogisticRegression(fit_intercept=True, class_weight=None,intercept_scaling=1,tol=0.0001, random_state=None)
-
+#clf = LogisticRegression(fit_intercept=True, class_weight=None,intercept_scaling=1,tol=0.0001, random_state=None)
+clf = RandomForestClassifier(n_estimators=2500, n_jobs=15,criterion="entropy",max_features='log2',random_state=150,max_depth=600,min_samples_split=163)
 #train all classifier on the same datasets
 clf.fit(counts_train,labels_train)
 
