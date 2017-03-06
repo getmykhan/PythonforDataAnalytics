@@ -1,13 +1,14 @@
 """
 A simple script that demonstrates how we classify textual data with sklearn.
-
 """
+
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
+#from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
-from sklearn import svm
-from sklearn.preprocessing import StandardScaler
-from sklearn.gaussian_process.kernels import ConstantKernel
+#from sklearn import svm
+#from sklearn.preprocessing import StandardScaler
+#from sklearn.gaussian_process.kernels import ConstantKernel
+from sklearn.ensemble import RandomForestClassifier
 
 #read the reviews and their polarities from a given file
 def loadData(fname):
@@ -35,7 +36,7 @@ counts_train = counter.transform(rev_train)#transform the training data
 counts_test = counter.transform(rev_test)#transform the testing data
 
 #train classifier
-clf = ConstantKernel()
+clf = RandomForestClassifier(n_estimators=10)
 
 #train all classifier on the same datasets
 clf.fit(counts_train,labels_train)
